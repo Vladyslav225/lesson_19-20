@@ -43,23 +43,25 @@ class SecondClass(FirstClass):
 
      def serializer(self, value):
 
-          value = super().serializer(self)
+          value = super().serializer(self.value)
           return value
 
      def write_file_json(self):
 
-          # value = self.serializer(value=self.value)
+          value = self.serializer(value=self.value)
 
           file = open(str(self), self.MODE_WRITE)
-          return json.dump(self.value, file)
+          json.dump(self.value, file)
+          return value
           
 
      def read_file_json(self):
 
-          # value = self.serializer(value=self.value)
+          value = self.serializer(value=self.value)
 
           file = open(str(self), self.MODE_READ)
-          return json.load(file)
+          json.load(file)
+          return value
           
           
           
@@ -67,12 +69,11 @@ class_txt = FirstClass(value = {'key': 'value', 'key1': 'value1'})
 class_txt.write_file_txt()
 class_txt.read_file_txt()
 data_txt = class_txt.serializer(value = "{'key': 'value', 'key1': 'value1'}")
-# print(data_txt)
+print(data_txt)
 
 class_json = SecondClass(value = "{'key': 'value', 'key1': 'value1'}")
 class_json.write_file_json()
-m = class_json.read_file_json()
+value = class_json.read_file_json()
 data_json = class_json.serializer(value = "{'key': 'value', 'key1': 'value1'}")
-print(m)
-print(type(m))
+print(data_json)
 
