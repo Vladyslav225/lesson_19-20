@@ -42,7 +42,7 @@ smarty.name = '1'
 smarty.name1 = 'S1'
 smarty._func(iter_classes)
 
-for key in iter_classes:
-     print(next(iter_classes[key]))
+# for key in iter_classes:
+#      print(next(iter_classes[key]))
 
 
